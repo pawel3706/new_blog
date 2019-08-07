@@ -1,0 +1,25 @@
+
+@mixin body-font-size
+    font-size: 1rem
+    @media(min-width: 992px) and (max-width: 1200px)
+        font-size: .9rem
+    @media(min-width: 768px) and (max-width: 992px)
+        font-size: 1.1rem
+    @media(max-width: 768px)
+        font-size: 1rem
+    @media(max-width: 450px)
+        font-size: 0.8rem
+
+    
+@mixin title-padding
+    @media(max-width: 992px)
+        padding: 1.5em 1.5em 1em
+    @media(max-width: 768px)
+        padding:  1.3em 1em 1em
+
+
+@mixin tags-padding
+    @media(max-width: 992px)
+        padding: 0 1.5em 1.5em
+    @media(max-width: 768px)
+        padding: 0 1em 1em

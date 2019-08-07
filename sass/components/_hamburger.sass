@@ -1,0 +1,41 @@
+nav
+    .nav-button
+        height: 37px
+        width: 37px
+        display: flex
+        align-items: center
+        cursor: pointer
+
+        &.cross span
+            background-color: transparent
+
+        &.cross span::before,
+        &.cross span::after
+            transform-origin: center
+            transform: rotate(45deg)
+            top: 0
+
+        &.cross span::before
+            transform: rotate(-45deg)
+
+        span
+            display: block
+            background-color: $hamburger-color
+            height: 2px
+            width: 100%
+            position: relative
+
+            &::before, &::after
+                content: ''
+                display: block
+                position: absolute
+                background-color: $hamburger-color
+                height: 2px
+                width: 100%
+                transition: all .3s ease-in-out
+            
+            &::before
+                top: 12px
+
+            &::after
+                top: -12px

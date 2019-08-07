@@ -1,0 +1,94 @@
+.card
+    position: relative
+    margin-bottom: 2px
+
+    &.reverse .card-body .card-title
+        left: auto
+        right: 45%
+
+    &.reverse .card-category
+        right: auto
+        left: 1.5em
+
+    &.reverse .card-body .card-tags
+        left: 0
+
+    .card-img
+
+    .card-body
+        @include body-font-size
+
+        &.active
+            background-color: $active-color
+            color: #fff
+
+        &.active .card-title
+            background-color: $active-color
+
+        &.active a
+            color: #fff
+
+        .card-title
+            background-color: #fff
+            padding: 1.5em
+            @include title-padding
+
+            @media(min-width: 992px)
+                position: absolute
+                left: 45%
+                bottom: 15%
+                max-width: 55% 
+            
+            h3
+                font-family: $header-font
+                font-weight: 600
+                line-height: 1.1
+                font-size: 2.5em
+                padding-bottom: .2em
+
+        .card-tags
+                padding-left: 1.5em
+                display: flex
+                @include tags-padding
+
+                @media(min-width: 992px)
+                    position: absolute
+                    left: 55%
+                    bottom: 15%
+                    transform: translateY(100%)
+
+                span
+                    color: $text-color
+                    font-size: 1.125em
+                    padding-right: 1em
+
+                span:last-child
+                    padding-right: 0
+
+                span:first-child
+                    @media(max-width: 375px)
+                        display: none
+
+        .card-category
+            font-family: $tag-font
+            font-size: 1em
+            display: flex
+
+            @media(min-width: 992px)
+                position: absolute
+                top: 1.5em
+                right: 1.5em
+
+            span
+                text-transform: uppercase
+                background-color: lighten($text-color, 10%)
+                color: #fff
+                padding: .5em
+                margin-right: 1em
+
+            span:last-child
+                margin-right: 0
+
+
+
+ 

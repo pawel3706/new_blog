@@ -1,0 +1,30 @@
+.container
+    max-width: 1200px
+    width: 100%
+    margin: 0 auto
+
+    @media(min-width: 576px)
+        max-width: 546px
+
+    @media(min-width: 768px)
+        // max-width: 738px
+        max-width: 670px
+
+    @media(min-width: 992px)
+        max-width: 962px
+
+    @media(min-width: 1200px)
+        max-width: 1170px
+
+.box-parent
+    @media(min-width: 992px)
+        display: flex
+
+    &.reverse
+        flex-flow: row-reverse
+
+    .box-child-1
+        flex: 0 0 55%
+    
+    .box-child-2
+        flex: 0 0 45%

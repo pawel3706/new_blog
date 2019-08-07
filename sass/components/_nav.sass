@@ -1,0 +1,92 @@
+.nav-full-width
+    border-bottom: 2px solid $active-color
+    margin-bottom: 32px
+
+    nav.container
+        font-family: $tag-font
+        background-color: $background-color
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        align-items: center
+        padding-top: 8px
+
+        .nav-button
+
+            @media(min-width: 992px)
+                display: none
+
+        .nav-list
+            display: flex
+            flex-grow: 1
+            justify-content: space-between
+            font-size: 13px
+            text-transform: uppercase
+
+            @media(max-width: 992px)
+                // inny efekt można uzyskać za pomocą display flex, align-items: flex-end
+                flex-basis: 100%
+                flex-direction: column
+
+                &.hidden
+                    display: none
+
+                &.transition
+                    overflow: hidden
+                    height: 0
+                    transition: height .5s ease
+
+            .nav-social
+                @media(max-width: 992px)
+                    padding-top: 16px
+
+                @media(min-width: 992px)
+                    margin-left: 24px
+
+            .nav-social > ul
+                display: flex
+                position: relative
+
+                @media(max-width: 992px)
+                    flex-direction: column
+
+                @media(min-width: 992px)
+
+                    &::before
+                        content: ''
+                        position: absolute
+                        top: 50%
+                        transform: translateY(-50%)
+                        margin: auto
+                        background-color: $text-color
+                        height: 60%
+                        width: 2px
+
+                li
+                    padding: 8px
+                    
+                    @media(min-width: 992px)
+                        margin-left: 24px
+                        padding: 8px 0
+
+                i
+                    font-size: 16px
+
+                span
+                    padding-left: 8px
+
+                    @media(min-width: 992px)
+                        display: none
+            
+            .nav-links > ul
+                display: flex
+
+                @media(max-width: 992px)
+                    flex-direction: column
+                    padding-bottom: 16px
+
+                li
+                    padding: 8px
+
+                &.active a
+                    color: $active-color

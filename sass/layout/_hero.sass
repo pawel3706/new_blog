@@ -1,0 +1,84 @@
+.hero
+    position: relative
+    border-bottom: 2px solid #fff
+
+    .hero-image
+        background:
+            image: url('../img/big-ben-810303_1280.jpg')
+            size: cover
+            position: bottom 25% left 0
+        height: 640px
+
+        @media(min-width: 992px) and (max-width: 1200px)
+            height: 578px
+
+        @media(max-width: 992px)
+            background-image: none
+            height: auto
+        
+        img
+            @media(min-width: 992px)
+                display: none
+    
+    .hero-body
+        @include body-font-size
+
+        @media(min-width: 992px)
+            width: calc(55% - 1em)
+
+        @media(min-width: 992px)
+            position: absolute
+            bottom: 1em
+            left: 1em
+
+        .hero-category
+            font-family: $tag-font
+            letter-spacing: .0625em
+            text-transform: uppercase
+            display: flex
+
+            span
+                background-color: lighten($text-color, 10%)
+                color: #fff
+                letter-spacing: 1px
+                padding: .5em
+                margin-right: 1em
+
+                @media(min-width: 992px)
+                    margin-bottom: 1em
+
+        .hero-content
+            background-color: #fff
+
+            @media(min-width: 992px)
+                padding: 2em
+        
+            .hero-title
+                @include title-padding
+
+                h3
+                    font-family: $header-font
+                    font-size: 2.5em
+                    font-weight: 600
+                    line-height: 1.1
+                    padding-bottom: .2em
+
+                    @media(min-width: 992px)
+                        font-size: 2.8em
+                        padding-bottom: .6em    
+
+                    span
+                        @media(min-width: 992px)
+                            display: none
+
+            .hero-tags
+                display: flex
+                @include tags-padding
+
+                span
+                    font-size: 1.125em
+                    padding-right: 1em
+
+                span:first-child
+                    @media(max-width: 375px)
+                        display: none
