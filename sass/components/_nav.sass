@@ -60,7 +60,7 @@
                         margin: auto
                         background-color: $text-color
                         height: 60%
-                        width: 2px
+                        width: 1px
 
                 li
                     padding: 8px
@@ -68,6 +68,9 @@
                     @media(min-width: 992px)
                         margin-left: 24px
                         padding: 8px 0
+
+                    &:hover a
+                        color: $active-color
 
                 i
                     font-size: 16px
@@ -88,5 +91,8 @@
                 li
                     padding: 8px
 
-                &.active a
-                    color: $active-color
+                    &:hover a
+                        color: $active-color
+
+                    &.active a
+                        color: $active-color
