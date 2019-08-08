@@ -1,0 +1,44 @@
+.switcher
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 20px
+    padding: 64px 0 96px
+
+    span
+        width: 45px
+        height: 45px
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-right: 8px
+
+        &.active
+            background-color: #fff
+            border: 2px solid $text-color
+
+            a
+                color: $text-color
+    
+        a
+            color: #fff
+
+        a > i
+            color: $text-color
+
+            &:hover
+                color: $active-color
+
+.switcher > *:not(.arrow)
+    background-color: $text-color
+    border: 2px solid $text-color
+
+    &:hover:not(.active)
+        background-color: #fff
+        border-color: $active-color
+    
+        a
+            color: $active-color
+
+
+    
