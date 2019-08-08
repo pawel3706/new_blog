@@ -174,10 +174,6 @@ footer {
   footer .footer-bottom {
     border-top: 2px solid #ee583a;
     padding-bottom: 16px; }
-    @media (max-width: 768px) {
-      footer .footer-bottom {
-        padding-right: 1em;
-        padding-left: 1em; } }
     footer .footer-bottom .container {
       display: flex;
       flex-wrap: wrap;
@@ -188,7 +184,9 @@ footer {
         padding-top: .5em; }
         @media (max-width: 768px) {
           footer .footer-bottom .container .copyright {
-            font-size: 15px; } }
+            font-size: 15px;
+            padding-right: 1em;
+            padding-left: 1em; } }
 
 .nav-full-width {
   border-bottom: 2px solid #ee583a;
@@ -297,11 +295,14 @@ footer {
       color: #ee583a; }
 
 nav .nav-button {
-  height: 37px;
-  width: 37px;
+  height: 30px;
+  width: 30px;
   display: flex;
   align-items: center;
   cursor: pointer; }
+  @media (max-width: 768px) {
+    nav .nav-button {
+      margin: .5em 1em; } }
   nav .nav-button.cross span {
     background-color: transparent; }
   nav .nav-button.cross span::before,
@@ -326,9 +327,9 @@ nav .nav-button {
       width: 100%;
       transition: all .3s ease-in-out; }
     nav .nav-button span::before {
-      top: 12px; }
+      top: 10px; }
     nav .nav-button span::after {
-      top: -12px; }
+      top: -10px; }
 
 .card {
   position: relative;
