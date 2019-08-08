@@ -33,9 +33,12 @@
 
         .hero-category
             font-family: $tag-font
-            letter-spacing: .0625em
+            font-size: 16px
             text-transform: uppercase
             display: flex
+
+            @media(max-width: 450px)
+                font-size: 14px
 
             span
                 background-color: $background-tag-color
@@ -76,8 +79,11 @@
                 @include tags-padding
 
                 span
-                    font-size: 1.125em
+                    font-size: 18px
                     padding-right: 1em
+
+                    @media(max-width: 450px)
+                        font-size: 16px
 
                 span:first-child
                     @media(max-width: 375px)

@@ -59,8 +59,11 @@
 
                 span
                     color: $text-color
-                    font-size: 1.125em
+                    font-size: 18px
                     padding-right: 1em
+
+                    @media(max-width: 450px)
+                        font-size: 16px
 
                 span:last-child
                     padding-right: 0
@@ -71,14 +74,17 @@
 
         .card-category
             font-family: $tag-font
-            font-size: 1em
-            letter-spacing: 0.05em
+            font-size: 16px
+            letter-spacing: 1px
             display: flex
 
             @media(min-width: 992px)
                 position: absolute
                 top: 1.5em
                 right: 1.5em
+
+            @media(max-width: 450px)
+                font-size: 14px
 
             span
                 text-transform: uppercase

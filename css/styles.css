@@ -93,9 +93,12 @@ body {
         left: 1em; } }
     .hero .hero-body .hero-category {
       font-family: Poppins, sans-serif;
-      letter-spacing: .0625em;
+      font-size: 16px;
       text-transform: uppercase;
       display: flex; }
+      @media (max-width: 450px) {
+        .hero .hero-body .hero-category {
+          font-size: 14px; } }
       .hero .hero-body .hero-category span {
         background-color: #5a5a5a;
         color: #fff;
@@ -138,8 +141,11 @@ body {
           .hero .hero-body .hero-content .hero-tags {
             padding: 0 1em 1em; } }
         .hero .hero-body .hero-content .hero-tags span {
-          font-size: 1.125em;
+          font-size: 18px;
           padding-right: 1em; }
+          @media (max-width: 450px) {
+            .hero .hero-body .hero-content .hero-tags span {
+              font-size: 16px; } }
         @media (max-width: 375px) {
           .hero .hero-body .hero-content .hero-tags span:first-child {
             display: none; } }
@@ -401,8 +407,11 @@ nav .nav-button {
           transform: translateY(100%); } }
       .card .card-body .card-tags span {
         color: #404040;
-        font-size: 1.125em;
+        font-size: 18px;
         padding-right: 1em; }
+        @media (max-width: 450px) {
+          .card .card-body .card-tags span {
+            font-size: 16px; } }
       .card .card-body .card-tags span:last-child {
         padding-right: 0; }
       @media (max-width: 375px) {
@@ -410,14 +419,17 @@ nav .nav-button {
           display: none; } }
     .card .card-body .card-category {
       font-family: Poppins, sans-serif;
-      font-size: 1em;
-      letter-spacing: 0.05em;
+      font-size: 16px;
+      letter-spacing: 1px;
       display: flex; }
       @media (min-width: 992px) {
         .card .card-body .card-category {
           position: absolute;
           top: 1.5em;
           right: 1.5em; } }
+      @media (max-width: 450px) {
+        .card .card-body .card-category {
+          font-size: 14px; } }
       .card .card-body .card-category span {
         text-transform: uppercase;
         background-color: #5a5a5a;
