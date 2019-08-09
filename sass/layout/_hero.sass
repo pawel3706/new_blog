@@ -28,7 +28,7 @@
 
         @media(min-width: 992px)
             position: absolute
-            bottom: 1em
+            top: 1em
             left: 1em
 
         .hero-category
@@ -55,7 +55,13 @@
 
             @media(min-width: 992px)
                 padding: 2em
-        
+
+            &.active
+                background-color: $active-color
+
+                .hero-title a
+                    color: #fff
+
             .hero-title
                 @include title-padding
 

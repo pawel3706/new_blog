@@ -89,7 +89,7 @@ body {
     @media (min-width: 992px) {
       .hero .hero-body {
         position: absolute;
-        bottom: 1em;
+        top: 1em;
         left: 1em; } }
     .hero .hero-body .hero-category {
       font-family: Poppins, sans-serif;
@@ -113,6 +113,10 @@ body {
       @media (min-width: 992px) {
         .hero .hero-body .hero-content {
           padding: 2em; } }
+      .hero .hero-body .hero-content.active {
+        background-color: #ee583a; }
+        .hero .hero-body .hero-content.active .hero-title a {
+          color: #fff; }
       @media (max-width: 992px) {
         .hero .hero-body .hero-content .hero-title {
           padding: 1.5em 1.5em 1em; } }
