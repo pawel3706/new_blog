@@ -1,6 +1,10 @@
 .hero
-    position: relative
+    // position: relative
     border-bottom: 2px solid #fff
+
+    img
+        @media(min-width: 992px)
+            display: none
 
     .hero-image
         background:
@@ -15,82 +19,80 @@
         @media(max-width: 992px)
             background-image: none
             height: auto
-        
-        img
-            @media(min-width: 992px)
-                display: none
     
-    .hero-body
-        @include body-font-size
-
-        @media(min-width: 992px)
-            width: calc(55% - 1em)
-
-        @media(min-width: 992px)
-            position: absolute
-            top: 1em
-            left: 1em
-
-        .hero-category
-            font-family: $tag-font
-            font-size: 16px
-            text-transform: uppercase
-            display: flex
-
-            @media(max-width: 450px)
-                font-size: 14px
-
-            span
-                background-color: $background-tag-color
-                color: #fff
-                letter-spacing: 1px
-                padding: .5em
-                margin-right: 1em
-
-                @media(min-width: 992px)
-                    margin-bottom: 1em
-
-        .hero-content
-            background-color: #fff
+        .hero-body
+            @include body-font-size
 
             @media(min-width: 992px)
-                padding: 2em
+                width: calc(55% - 1em)
+                padding-top: 1em
+                padding-left: 1em
 
-            &.active
-                background-color: $active-color
+            @media(min-width: 992px)
+                // position: absolute
+                // top: 1em
+                // left: 1em
 
-                .hero-title a
-                    color: #fff
-
-            .hero-title
-                @include title-padding
-
-                h3
-                    font-family: $header-font
-                    font-size: 2.5em
-                    font-weight: 600
-                    line-height: 1.1
-                    padding-bottom: .2em
-
-                    @media(min-width: 992px)
-                        font-size: 2.8em
-                        padding-bottom: .6em    
-
-                    span
-                        @media(min-width: 992px)
-                            display: none
-
-            .hero-tags
+            .hero-category
+                font-family: $tag-font
+                font-size: 16px
+                text-transform: uppercase
                 display: flex
-                @include tags-padding
+
+                @media(max-width: 450px)
+                    font-size: 14px
 
                 span
-                    font-size: 18px
-                    padding-right: 1em
+                    background-color: $background-tag-color
+                    color: #fff
+                    letter-spacing: 1px
+                    padding: .5em
+                    margin-right: 1em
 
-                    @media(max-width: 450px)
-                        font-size: 16px
+                    @media(min-width: 992px)
+                        margin-bottom: 1em
 
-                span:first-child
-                    @media(max-width: 375px)
-                        display: none
+            .hero-content
+                background-color: #fff
+
+                @media(min-width: 992px)
+                    padding: 2em
+
+                &.active
+                    background-color: $active-color
+
+                    .hero-title a
+                        color: #fff
+
+                .hero-title
+                    @include title-padding
+
+                    h3
+                        font-family: $header-font
+                        font-size: 2.5em
+                        font-weight: 600
+                        line-height: 1.1
+                        padding-bottom: .2em
+
+                        @media(min-width: 992px)
+                            font-size: 2.8em
+                            padding-bottom: .6em    
+
+                        span
+                            @media(min-width: 992px)
+                                display: none
+
+                .hero-tags
+                    display: flex
+                    @include tags-padding
+
+                    span
+                        font-size: 18px
+                        padding-right: 1em
+
+                        @media(max-width: 450px)
+                            font-size: 16px
+
+                    span:first-child
+                        @media(max-width: 375px)
+                            display: none

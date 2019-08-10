@@ -52,8 +52,10 @@ body {
   flex: 0 0 45%; }
 
 .hero {
-  position: relative;
   border-bottom: 2px solid #fff; }
+  @media (min-width: 992px) {
+    .hero img {
+      display: none; } }
   .hero .hero-image {
     background-image: url("../img/big-ben-810303_1280.jpg");
     background-size: cover;
@@ -66,93 +68,87 @@ body {
       .hero .hero-image {
         background-image: none;
         height: auto; } }
-    @media (min-width: 992px) {
-      .hero .hero-image img {
-        display: none; } }
-  .hero .hero-body {
-    font-size: 1rem; }
-    @media (min-width: 992px) and (max-width: 1200px) {
-      .hero .hero-body {
-        font-size: .9rem; } }
-    @media (min-width: 768px) and (max-width: 992px) {
-      .hero .hero-body {
-        font-size: 1.1rem; } }
-    @media (max-width: 768px) {
-      .hero .hero-body {
-        font-size: 1rem; } }
-    @media (max-width: 450px) {
-      .hero .hero-body {
-        font-size: 0.8rem; } }
-    @media (min-width: 992px) {
-      .hero .hero-body {
-        width: calc(55% - 1em); } }
-    @media (min-width: 992px) {
-      .hero .hero-body {
-        position: absolute;
-        top: 1em;
-        left: 1em; } }
-    .hero .hero-body .hero-category {
-      font-family: Poppins, sans-serif;
-      font-size: 16px;
-      text-transform: uppercase;
-      display: flex; }
-      @media (max-width: 450px) {
-        .hero .hero-body .hero-category {
-          font-size: 14px; } }
-      .hero .hero-body .hero-category span {
-        background-color: #5a5a5a;
-        color: #fff;
-        letter-spacing: 1px;
-        padding: .5em;
-        margin-right: 1em; }
-        @media (min-width: 992px) {
-          .hero .hero-body .hero-category span {
-            margin-bottom: 1em; } }
-    .hero .hero-body .hero-content {
-      background-color: #fff; }
-      @media (min-width: 992px) {
-        .hero .hero-body .hero-content {
-          padding: 2em; } }
-      .hero .hero-body .hero-content.active {
-        background-color: #ee583a; }
-        .hero .hero-body .hero-content.active .hero-title a {
-          color: #fff; }
-      @media (max-width: 992px) {
-        .hero .hero-body .hero-content .hero-title {
-          padding: 1.5em 1.5em 1em; } }
+    .hero .hero-image .hero-body {
+      font-size: 1rem; }
+      @media (min-width: 992px) and (max-width: 1200px) {
+        .hero .hero-image .hero-body {
+          font-size: .9rem; } }
+      @media (min-width: 768px) and (max-width: 992px) {
+        .hero .hero-image .hero-body {
+          font-size: 1.1rem; } }
       @media (max-width: 768px) {
-        .hero .hero-body .hero-content .hero-title {
-          padding: 1.3em 1em 1em; } }
-      .hero .hero-body .hero-content .hero-title h3 {
-        font-family: Kanit, sans-serif;
-        font-size: 2.5em;
-        font-weight: 600;
-        line-height: 1.1;
-        padding-bottom: .2em; }
-        @media (min-width: 992px) {
-          .hero .hero-body .hero-content .hero-title h3 {
-            font-size: 2.8em;
-            padding-bottom: .6em; } }
-        @media (min-width: 992px) {
-          .hero .hero-body .hero-content .hero-title h3 span {
-            display: none; } }
-      .hero .hero-body .hero-content .hero-tags {
+        .hero .hero-image .hero-body {
+          font-size: 1rem; } }
+      @media (max-width: 450px) {
+        .hero .hero-image .hero-body {
+          font-size: 0.8rem; } }
+      @media (min-width: 992px) {
+        .hero .hero-image .hero-body {
+          width: calc(55% - 1em);
+          padding-top: 1em;
+          padding-left: 1em; } }
+      .hero .hero-image .hero-body .hero-category {
+        font-family: Poppins, sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
         display: flex; }
+        @media (max-width: 450px) {
+          .hero .hero-image .hero-body .hero-category {
+            font-size: 14px; } }
+        .hero .hero-image .hero-body .hero-category span {
+          background-color: #5a5a5a;
+          color: #fff;
+          letter-spacing: 1px;
+          padding: .5em;
+          margin-right: 1em; }
+          @media (min-width: 992px) {
+            .hero .hero-image .hero-body .hero-category span {
+              margin-bottom: 1em; } }
+      .hero .hero-image .hero-body .hero-content {
+        background-color: #fff; }
+        @media (min-width: 992px) {
+          .hero .hero-image .hero-body .hero-content {
+            padding: 2em; } }
+        .hero .hero-image .hero-body .hero-content.active {
+          background-color: #ee583a; }
+          .hero .hero-image .hero-body .hero-content.active .hero-title a {
+            color: #fff; }
         @media (max-width: 992px) {
-          .hero .hero-body .hero-content .hero-tags {
-            padding: 0 1.5em 1.5em; } }
+          .hero .hero-image .hero-body .hero-content .hero-title {
+            padding: 1.5em 1.5em 1em; } }
         @media (max-width: 768px) {
-          .hero .hero-body .hero-content .hero-tags {
-            padding: 0 1em 1em; } }
-        .hero .hero-body .hero-content .hero-tags span {
-          font-size: 18px;
-          padding-right: 1em; }
-          @media (max-width: 450px) {
-            .hero .hero-body .hero-content .hero-tags span {
-              font-size: 16px; } }
-        @media (max-width: 375px) {
-          .hero .hero-body .hero-content .hero-tags span:first-child {
-            display: none; } }
+          .hero .hero-image .hero-body .hero-content .hero-title {
+            padding: 1.3em 1em 1em; } }
+        .hero .hero-image .hero-body .hero-content .hero-title h3 {
+          font-family: Kanit, sans-serif;
+          font-size: 2.5em;
+          font-weight: 600;
+          line-height: 1.1;
+          padding-bottom: .2em; }
+          @media (min-width: 992px) {
+            .hero .hero-image .hero-body .hero-content .hero-title h3 {
+              font-size: 2.8em;
+              padding-bottom: .6em; } }
+          @media (min-width: 992px) {
+            .hero .hero-image .hero-body .hero-content .hero-title h3 span {
+              display: none; } }
+        .hero .hero-image .hero-body .hero-content .hero-tags {
+          display: flex; }
+          @media (max-width: 992px) {
+            .hero .hero-image .hero-body .hero-content .hero-tags {
+              padding: 0 1.5em 1.5em; } }
+          @media (max-width: 768px) {
+            .hero .hero-image .hero-body .hero-content .hero-tags {
+              padding: 0 1em 1em; } }
+          .hero .hero-image .hero-body .hero-content .hero-tags span {
+            font-size: 18px;
+            padding-right: 1em; }
+            @media (max-width: 450px) {
+              .hero .hero-image .hero-body .hero-content .hero-tags span {
+                font-size: 16px; } }
+          @media (max-width: 375px) {
+            .hero .hero-image .hero-body .hero-content .hero-tags span:first-child {
+              display: none; } }
 
 footer {
   font-size: 1rem;
