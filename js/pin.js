@@ -1,29 +1,32 @@
 class Pin {
-    constructor(selector1, selector2, screenPoint, duration, pushFollowers) {
+    constructor(selector1, selector2, screenPoint, duration) {
         this.pin = document.querySelector(selector1);
         this.spacer = this.cerateSpacer();
-        this.screenPoint = window.innerHeight * screenPoint;
+        this.duration = duration === 'unknown' ? this.getDuration() : duration;
+        this.screenPoint = typeof screenPoint === 'number' ? screenPoint : window.innerHeight * screenPoint.slice(0, -1);
         this.starter = document.querySelector(selector2);
         this.starterPos = this.starter.getBoundingClientRect().top + window.scrollY;
-        this.duration = duration;
-        this.pushFollowers = pushFollowers;
+        this.setPinWidth();
+    }
+
+    getDuration() {
+        return this.spacer.parentElement.getBoundingClientRect().height - this.pin.getBoundingClientRect().height;
     }
 
     cerateSpacer() {
-        const pinParent = this.pin.parentNode.insertBefore(document.createElement('div'), this.pin);
-        pinParent.appendChild(this.pin);
-        pinParent.classList.add('spacer');
-        return pinParent;
+        const spacer = this.pin.parentNode.insertBefore(document.createElement('div'), this.pin);
+        spacer.appendChild(this.pin);
+        spacer.classList.add('spacer');
+
+        spacer.style.height = `${this.pin.getBoundingClientRect().height}px`;
+
+        return spacer;
+    }
+
+    setPinWidth() {
+        this.pin.style.width = this.duration > 0 ? window.getComputedStyle(this.pin).getPropertyValue('width') : `${this.spacer.getBoundingClientRect().width}px`;
+
+        // important to change percent to px unit for position fixed elements
     }
 }
 
-const dimension = (selector) => {
-    return document.querySelector(selector).getBoundingClientRect().height;
-}
-const element1 = dimension('.hero');
-const element2 = dimension('.hero-body');
-const style = getComputedStyle(document.querySelector('.hero-body'))
-let distance = style.top;
-distance = distance.slice(0, distance.length - 2);
-
-const duration = element1 - element2 - distance;

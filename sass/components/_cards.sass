@@ -1,6 +1,6 @@
 .card
     position: relative
-    margin-bottom: 2px
+    border-bottom: 2px solid pink
 
     &.reverse .card-body .card-title
         left: auto
@@ -17,6 +17,7 @@
 
     .card-body
         @include body-font-size
+        background-color: #fff
 
         &.active
             background-color: $active-color
