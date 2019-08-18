@@ -350,8 +350,7 @@ nav .nav-button {
       top: -10px; }
 
 .card {
-  position: relative;
-  border-bottom: 2px solid pink; }
+  position: relative; }
   .card.reverse .card-body .card-title {
     left: auto;
     right: 45%; }
@@ -360,9 +359,23 @@ nav .nav-button {
     left: 1.5em; }
   .card.reverse .card-body .card-tags {
     left: 0; }
+  .card.active .card-body {
+    background-color: #ee583a;
+    color: #fff; }
+  .card.active .card-body .card-title {
+    background-color: #ee583a; }
+  .card.active a {
+    color: #fff; }
+  .card.active img {
+    transform: scale3d(1.05, 1.05, 0.5); }
+  .card .card-img {
+    overflow: hidden; }
+    .card .card-img img {
+      transition: all .5s linear; }
   .card .card-body {
     font-size: 1rem;
-    background-color: #fff; }
+    background-color: #fff;
+    transition: all .5s ease-in-out; }
     @media (min-width: 992px) and (max-width: 1200px) {
       .card .card-body {
         font-size: .9rem; } }
@@ -375,16 +388,10 @@ nav .nav-button {
     @media (max-width: 450px) {
       .card .card-body {
         font-size: 0.8rem; } }
-    .card .card-body.active {
-      background-color: #ee583a;
-      color: #fff; }
-    .card .card-body.active .card-title {
-      background-color: #ee583a; }
-    .card .card-body.active a {
-      color: #fff; }
     .card .card-body .card-title {
       background-color: #fff;
-      padding: 1.5em; }
+      padding: 1.5em;
+      transition: all .5s ease-in-out; }
       @media (max-width: 992px) {
         .card .card-body .card-title {
           padding: 1.5em 1.5em 1em; } }
@@ -403,6 +410,8 @@ nav .nav-button {
         line-height: 1.1;
         font-size: 2.5em;
         padding-bottom: .2em; }
+        .card .card-body .card-title h3 a {
+          transition: all .5s ease-in-out; }
     .card .card-body .card-tags {
       padding-left: 1.5em;
       display: flex; }

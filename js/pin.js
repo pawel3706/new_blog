@@ -15,10 +15,13 @@ class Pin {
 
     cerateSpacer() {
         const spacer = this.pin.parentNode.insertBefore(document.createElement('div'), this.pin);
+        spacer.style.height = `${this.pin.getBoundingClientRect().height}px`;
+        // setTimeout(()=> {
+        //     spacer.style.height = `${this.pin.getBoundingClientRect().height}px`;
+        //     console.log(`createSpacer: ${this.pin.getBoundingClientRect().height}`)
+        // }, 0);
         spacer.appendChild(this.pin);
         spacer.classList.add('spacer');
-
-        spacer.style.height = `${this.pin.getBoundingClientRect().height}px`;
 
         return spacer;
     }
