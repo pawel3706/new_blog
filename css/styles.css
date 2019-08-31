@@ -52,13 +52,14 @@ body {
   flex: 0 0 45%; }
 
 .hero {
-  margin-top: 32px;
-  border-bottom: 2px solid #fff; }
+  padding-top: calc(32px + 64px);
+  border-bottom: 2px solid #fff;
+  background-color: #f2f2f2; }
   @media (min-width: 992px) {
     .hero img {
       display: none; } }
   .hero .hero-image {
-    background-image: url("../img/big-ben-810303_1280.jpg");
+    background-image: url("../img/westminster-1176318_1063.jpg");
     background-size: cover;
     background-position: bottom 25% left 0;
     height: 640px; }
@@ -199,10 +200,14 @@ footer {
             padding-right: 1em;
             padding-left: 1em; } }
 
-.nav-full-width {
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   border-bottom: 2px solid #ee583a;
   z-index: 10; }
-  .nav-full-width nav.container {
+  .nav nav.container {
     font-family: Poppins, sans-serif;
     background-color: #f2f2f2;
     display: flex;
@@ -211,38 +216,38 @@ footer {
     align-items: center;
     padding-top: 8px; }
     @media (min-width: 992px) {
-      .nav-full-width nav.container .nav-button {
+      .nav nav.container .nav-button {
         display: none; } }
-    .nav-full-width nav.container .nav-list {
+    .nav nav.container .nav-list {
       display: flex;
       flex-grow: 1;
       justify-content: space-between;
       font-size: 13px;
       text-transform: uppercase; }
       @media (max-width: 992px) {
-        .nav-full-width nav.container .nav-list {
+        .nav nav.container .nav-list {
           flex-basis: 100%;
           flex-direction: column; }
-          .nav-full-width nav.container .nav-list.hidden {
+          .nav nav.container .nav-list.hidden {
             display: none; }
-          .nav-full-width nav.container .nav-list.transition {
+          .nav nav.container .nav-list.transition {
             overflow: hidden;
             height: 0;
             transition: height .5s ease; } }
       @media (max-width: 992px) {
-        .nav-full-width nav.container .nav-list .nav-social {
+        .nav nav.container .nav-list .nav-social {
           padding-top: 16px; } }
       @media (min-width: 992px) {
-        .nav-full-width nav.container .nav-list .nav-social {
+        .nav nav.container .nav-list .nav-social {
           margin-left: 24px; } }
-      .nav-full-width nav.container .nav-list .nav-social > ul {
+      .nav nav.container .nav-list .nav-social > ul {
         display: flex;
         position: relative; }
         @media (max-width: 992px) {
-          .nav-full-width nav.container .nav-list .nav-social > ul {
+          .nav nav.container .nav-list .nav-social > ul {
             flex-direction: column; } }
         @media (min-width: 992px) {
-          .nav-full-width nav.container .nav-list .nav-social > ul::before {
+          .nav nav.container .nav-list .nav-social > ul::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -251,32 +256,32 @@ footer {
             background-color: #404040;
             height: 60%;
             width: 1px; } }
-        .nav-full-width nav.container .nav-list .nav-social > ul li {
+        .nav nav.container .nav-list .nav-social > ul li {
           padding: 8px; }
           @media (min-width: 992px) {
-            .nav-full-width nav.container .nav-list .nav-social > ul li {
+            .nav nav.container .nav-list .nav-social > ul li {
               margin-left: 24px;
               padding: 8px 0; } }
-          .nav-full-width nav.container .nav-list .nav-social > ul li:hover a {
+          .nav nav.container .nav-list .nav-social > ul li:hover a {
             color: #ee583a; }
-        .nav-full-width nav.container .nav-list .nav-social > ul i {
+        .nav nav.container .nav-list .nav-social > ul i {
           font-size: 16px; }
-        .nav-full-width nav.container .nav-list .nav-social > ul span {
+        .nav nav.container .nav-list .nav-social > ul span {
           padding-left: 8px; }
           @media (min-width: 992px) {
-            .nav-full-width nav.container .nav-list .nav-social > ul span {
+            .nav nav.container .nav-list .nav-social > ul span {
               display: none; } }
-      .nav-full-width nav.container .nav-list .nav-links > ul {
+      .nav nav.container .nav-list .nav-links > ul {
         display: flex; }
         @media (max-width: 992px) {
-          .nav-full-width nav.container .nav-list .nav-links > ul {
+          .nav nav.container .nav-list .nav-links > ul {
             flex-direction: column;
             padding-bottom: 16px; } }
-        .nav-full-width nav.container .nav-list .nav-links > ul li {
+        .nav nav.container .nav-list .nav-links > ul li {
           padding: 8px; }
-          .nav-full-width nav.container .nav-list .nav-links > ul li:hover a {
+          .nav nav.container .nav-list .nav-links > ul li:hover a {
             color: #ee583a; }
-          .nav-full-width nav.container .nav-list .nav-links > ul li.active a {
+          .nav nav.container .nav-list .nav-links > ul li.active a {
             color: #ee583a; }
 
 .logo {
@@ -371,11 +376,11 @@ nav .nav-button {
   .card .card-img {
     overflow: hidden; }
     .card .card-img img {
-      transition: all .5s linear; }
+      transition: all .3s linear; }
   .card .card-body {
     font-size: 1rem;
     background-color: #fff;
-    transition: all .5s ease-in-out; }
+    transition: all .3s ease-in-out; }
     @media (min-width: 992px) and (max-width: 1200px) {
       .card .card-body {
         font-size: .9rem; } }
@@ -391,7 +396,7 @@ nav .nav-button {
     .card .card-body .card-title {
       background-color: #fff;
       padding: 1.5em;
-      transition: all .5s ease-in-out; }
+      transition: all .3s ease-in-out; }
       @media (max-width: 992px) {
         .card .card-body .card-title {
           padding: 1.5em 1.5em 1em; } }
