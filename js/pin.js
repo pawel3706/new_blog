@@ -2,24 +2,23 @@ class Pin {
     constructor(selector1, selector2, screenPoint, duration) {
         this.pin = document.querySelector(selector1);
         this.spacer = this.cerateSpacer();
-        this.duration = duration === 'unknown' ? this.getDuration() : duration;
+        this.duration = duration === 'unknown' ? this.setDuration() : duration;
         this.screenPoint = typeof screenPoint === 'number' ? screenPoint : window.innerHeight * screenPoint.slice(0, -1);
         this.starter = document.querySelector(selector2);
         this.starterPos = this.starter.getBoundingClientRect().top + window.scrollY;
         this.setPinWidth();
     }
 
-    getDuration() {
+    setDuration() {
         return this.spacer.parentElement.getBoundingClientRect().height - this.pin.getBoundingClientRect().height;
     }
 
     cerateSpacer() {
+
         const spacer = this.pin.parentNode.insertBefore(document.createElement('div'), this.pin);
+
         spacer.style.height = `${this.pin.getBoundingClientRect().height}px`;
-        // setTimeout(()=> {
-        //     spacer.style.height = `${this.pin.getBoundingClientRect().height}px`;
-        //     console.log(`createSpacer: ${this.pin.getBoundingClientRect().height}`)
-        // }, 0);
+
         spacer.appendChild(this.pin);
         spacer.classList.add('spacer');
 

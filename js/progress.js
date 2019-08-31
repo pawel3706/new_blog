@@ -4,7 +4,8 @@ class Progress {
     }
 
     trackProgress() {
-        this.list.forEach((item, index) => {
+
+        this.list.forEach(item => {
 
             const scrollDis = window.scrollY + item.screenPoint;
 
@@ -12,14 +13,11 @@ class Progress {
 
             const distance = item.spacer.getBoundingClientRect().top + (window.scrollY - (item.starterPos - item.screenPoint));
 
-            // console.log(`${index}: ${item.spacer.getBoundingClientRect().top}`)
-
             const active = item.duration > 0 ? progress >= 0 : progress >= 1;
             
             const disabled = item.duration > 0 ? progress < 0 || progress > 1 : progress < 1;
 
             if (active) {
-                // item.spacer.style.height = `${item.pin.getBoundingClientRect().heigth}px`;
                 item.pin.style.position = 'fixed';
                 item.pin.style.top = `${distance}px`;
                 
@@ -28,18 +26,15 @@ class Progress {
                 }
             }; 
             if (disabled) {
-                // item.spacer.style.height = '';
                 item.pin.style.position = 'relative';
                 item.pin.style.top = '';
 
-                if (item.duration > 0) {
+                if (progress >= 1) {
                     item.spacer.style.paddingTop = `${item.duration}px`;
                 } 
             }
         })
-    }
-
-    changeSpacerHeight() {
-        // console.log(window.innerWidth)
+        
     }
 }
+
