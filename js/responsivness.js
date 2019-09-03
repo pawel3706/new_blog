@@ -5,14 +5,15 @@ class Responsivness {
 
     changeSpacerHeight() {
         this.list.forEach(item => {
+            
             item.pin.style.width = '';
 
-            if (item.pin.classList.contains('hero-body')) {
-                // console.log(window.getComputedStyle(item.pin).getPropertyValue('width'));
-            };
-
-            // item.pin.style.width = item.duration > 0 ? window.getComputedStyle(item.pin).getPropertyValue('width') : `${item.spacer.getBoundingClientRect().width}px`;
-            item.pin.style.width = item.duration > 0 ? `${item.spacer.parentElement.getBoundingClientRect().width * 0.55}px` : `${item.spacer.getBoundingClientRect().width}px`;
+            if (item.duration > 0) {
+                const imgSize = document.querySelector('.card img').getBoundingClientRect().width;
+                item.pin.style.width = `${imgSize}px`;
+            } else {
+                item.pin.style.width = `${item.spacer.getBoundingClientRect().width}px`;
+            }
 
             item.spacer.style.height = `${item.pin.getBoundingClientRect().height}px`;
 

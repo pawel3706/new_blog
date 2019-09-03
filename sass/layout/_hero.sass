@@ -5,6 +5,9 @@
     border-bottom: 2px solid #fff
     background-color: $background-color
 
+    @media(max-width: 992px)
+        border-bottom: none
+
     img
         @media(min-width: 992px)
             display: none
@@ -31,10 +34,8 @@
                 padding: 1em
                 padding-right: 0
 
-            @media(min-width: 992px)
-                // position: absolute
-                // top: 1em
-                // left: 1em
+            @media(max-width: 992px)
+                background-color: $active-color
 
             .hero-category
                 font-family: $tag-font
@@ -99,3 +100,6 @@
                     span:first-child
                         @media(max-width: 375px)
                             display: none
+
+                    span:last-child
+                        padding-right: 0
