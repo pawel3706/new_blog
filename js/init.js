@@ -25,8 +25,6 @@
 
             this.activeCard.checkCards = this.activeCard.checkCards.bind(this.activeCard);
 
-            // this.activeCard.checkCards 
-
             if (this.screenW > 992) {
                 window.addEventListener('scroll', this.progress.trackProgress);
                 // in case of page reloading
