@@ -34,13 +34,12 @@
     .card-body
         @include body-font-size
         background-color: #fff
-        // transition: all .3s ease-in-out
-        transition: background-color .3s ease-in-out
+        transition: background-color .3s linear
 
         .card-title
             background-color: #fff
             padding: 1.5em
-            transition: background-color .3s ease-in-out
+            transition: background-color .3s linear
             @include title-padding
 
             @media(min-width: 992px)
@@ -57,7 +56,7 @@
                 padding-bottom: .2em
 
                 a
-                    transition: color .5s ease-in-out
+                    transition: color .3s linear
 
         .card-tags
                 padding-left: 1.5em

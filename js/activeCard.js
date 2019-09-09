@@ -1,52 +1,61 @@
 class ActiveCard {
     constructor() {
-        this.cards = document.querySelectorAll('.main-content > .spacer:not(.hero)');
-        this.lastCard = document.querySelector('.card-pin8');
+        this.nav = document.querySelector('.nav');
+        this.body = document.querySelector('body');
+        this.hero = document.querySelector('.hero-body');
+        this.heroContainer = document.querySelector('.hero');
+        this.cards = document.querySelectorAll('.card');
+        this.heroBottom = this.hero.getBoundingClientRect().bottom + window.scrollY;
 
-        this.list = [...this.cards, this.lastCard];
-
-        this.progressCard = document.querySelector('.card');
+        this.list = [this.hero, ...this.cards];
+        // console.log(this.list);
     }
     checkCards() {
-        this.list.forEach((card, index) => {
-            const prev = card.previousElementSibling;
-            const next = card.nextElementSibling;
+        this.list.forEach(item => {
 
-            const trio = [prev, card, next];
-            const copyList = this.list.slice();
+            const progress = this.getProgress(item);
 
-            trio.forEach(item => {
-                const index = copyList.indexOf(item);
-                copyList.splice(index, 1);
-            })
-
-            const progress = this.getProgress(card);
+            const elementWithClass = item === this.hero ? this.heroContainer : item;
 
             if(progress >= 0) {
-                card.firstElementChild.classList.add('active');
-                card.style.opacity = 1;
-                prev.style.opacity = 1 - progress;
-                next.style.opacity = progress;
-                copyList.forEach(item => {
-                    item.style.opacity = 0;
-                })
+                elementWithClass.classList.add('active');
             }
-            if (progress > 1 || progress < 0) {
-                card.firstElementChild.classList.remove('active');
+
+            const lastItem = item.classList.contains('card-pin8');
+
+            const condition = lastItem ? progress <= 0 : progress >= 1 || progress <= 0;
+
+            if (condition) {
+                elementWithClass.classList.remove('active');
             }
         })
     }
-
+    
     getProgress(element) {
 
         const rect = element.getBoundingClientRect();
-        const cardTop = rect.top + window.scrollY;
+        let starterPos;
+        let duration;
+        let screenPoint;
 
-        const duration = rect.height;
+        if (element === this.hero) {
+            starterPos = this.body.getBoundingClientRect().top + scrollY;
+            duration = this.heroContainer.getBoundingClientRect().height - rect.height;
+            screenPoint = 0;
+        } else if (element.classList.contains('card-pin1')) {
+            starterPos = rect.top + window.scrollY;
+            duration = this.heroBottom - this.nav.getBoundingClientRect().height;
+            screenPoint = this.heroBottom
 
-        const scrollDis = window.scrollY + window.innerHeight/2;
+        } else {
+            starterPos = rect.top + window.scrollY;
+            duration = rect.height;
+            screenPoint = rect.height + this.nav.getBoundingClientRect().height;
+        }
 
-        const result = (scrollDis - cardTop) / duration;
+        const scrollDis =  window.scrollY + screenPoint;
+
+        const result = (scrollDis - starterPos) / duration;
 
         return result;
     }

@@ -12,7 +12,7 @@ class Pin {
     setDuration() {
         return this.spacer.parentElement.getBoundingClientRect().height - this.pin.getBoundingClientRect().height;
     }
-
+    
     cerateSpacer() {
 
         const spacer = this.pin.parentNode.insertBefore(document.createElement('div'), this.pin);
@@ -27,6 +27,12 @@ class Pin {
 
     setPinWidth() {
         this.pin.style.width = this.duration > 0 ? window.getComputedStyle(this.pin).getPropertyValue('width') : `${this.spacer.getBoundingClientRect().width}px`;
+
+        if (this.duration > 0) {
+            this.spacer.style.position = 'absolute';
+            this.spacer.style.top = 0;
+            this.spacer.style.left = 0;
+        }
 
         // important to change percent to px unit for position fixed elements
     }

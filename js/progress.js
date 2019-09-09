@@ -20,17 +20,15 @@ class Progress {
             if (active) {
                 item.pin.style.position = 'fixed';
                 item.pin.style.top = `${distance}px`;
-                
-                if (item.duration > 0) {
-                    item.spacer.style.paddingTop = '';
-                }
+                item.pin.style.left = `${item.spacer.getBoundingClientRect().left}px`
             }; 
             if (disabled) {
                 item.pin.style.position = 'relative';
                 item.pin.style.top = '';
+                item.pin.style.left = '';
 
                 if (progress >= 1) {
-                    item.spacer.style.paddingTop = `${item.duration}px`;
+                    item.pin.style.top = `${item.duration}px`;
                 } 
             }
         })

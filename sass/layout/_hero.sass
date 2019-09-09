@@ -1,105 +1,120 @@
 .hero
-    padding-top: calc(32px + 64px)
-    // add to padding nav height
-        
+    position: relative
+    height: 640px
+    overflow: hidden
     border-bottom: 2px solid #fff
     background-color: $background-color
+
+    @media(min-width: 992px) and (max-width: 1200px)
+        height: 578px
+
+    @media(max-width: 992px)
+        // background-image: none
+        height: auto
 
     @media(max-width: 992px)
         border-bottom: none
 
-    img
+    &.active .hero-body .hero-content
+        background-color: $active-color
+
+    &.active .hero-body .hero-title a
+        color: #fff
+
+    &.active .hero-background-image
+        transform: scale3d(1.05, 1.05, .5)
+
+    .hero-image
         @media(min-width: 992px)
             display: none
 
-    .hero-image
+    .hero-background-image
+        height: 100%
         background:
             image: url('../img/westminster-1176318_1063.jpg')
             size: cover
             position: bottom 25% left 0
-        height: 640px
-
-        @media(min-width: 992px) and (max-width: 1200px)
-            height: 578px
+        transition: all .3s linear
 
         @media(max-width: 992px)
             background-image: none
-            height: auto
-    
-        .hero-body
-            @include body-font-size
 
-            @media(min-width: 992px)
-                width: 55%
-                padding: 1em
-                padding-right: 0
+    .hero-body
+        position: absolute
+        top: 0
+        left: 0
+        @include body-font-size
 
-            @media(max-width: 992px)
-                background-color: $active-color
+        @media(min-width: 992px)
+            width: 55%
+            padding: 1em
+            padding-right: 0
 
-            .hero-category
-                font-family: $tag-font
-                font-size: 16px
-                text-transform: uppercase
-                display: flex
+        @media(max-width: 992px)
+            background-color: $active-color
 
-                @media(max-width: 450px)
-                    font-size: 14px
+        .hero-category
+            font-family: $tag-font
+            font-size: 16px
+            text-transform: uppercase
+            display: flex
 
-                span
-                    background-color: $background-tag-color
-                    color: #fff
-                    letter-spacing: 1px
-                    padding: .5em
-                    margin-right: 1em
+            @media(max-width: 450px)
+                font-size: 14px
 
-                    @media(min-width: 992px)
-                        margin-bottom: 1em
-
-            .hero-content
-                background-color: #fff
+            span
+                background-color: $background-tag-color
+                color: #fff
+                letter-spacing: 1px
+                padding: .5em
+                margin-right: 1em
 
                 @media(min-width: 992px)
-                    padding: 2em
+                    margin-bottom: 1em
 
-                &.active
-                    background-color: $active-color
+        .hero-content
+            background-color: #fff
+            transition: background-color .3s linear
 
-                    .hero-title a
-                        color: #fff
+            @media(min-width: 992px)
+                padding: 2em
 
-                .hero-title
-                    @include title-padding
+            .hero-title
 
-                    h3
-                        font-family: $header-font
-                        font-size: 2.5em
-                        font-weight: 600
-                        line-height: 1.1
-                        padding-bottom: .2em
+                @include title-padding
 
-                        @media(min-width: 992px)
-                            font-size: 2.8em
-                            padding-bottom: .6em    
+                h3
+                    font-family: $header-font
+                    font-size: 2.5em
+                    font-weight: 600
+                    line-height: 1.1
+                    padding-bottom: .2em
+
+                    @media(min-width: 992px)
+                        font-size: 2.8em
+                        padding-bottom: .6em
+
+                    a
+                        transition: color .3s linear
 
                         span
                             @media(min-width: 992px)
                                 display: none
 
-                .hero-tags
-                    display: flex
-                    @include tags-padding
+            .hero-tags
+                display: flex
+                @include tags-padding
 
-                    span
-                        font-size: 18px
-                        padding-right: 1em
+                span
+                    font-size: 18px
+                    padding-right: 1em
 
-                        @media(max-width: 450px)
-                            font-size: 16px
+                    @media(max-width: 450px)
+                        font-size: 16px
 
-                    span:first-child
-                        @media(max-width: 375px)
-                            display: none
+                span:first-child
+                    @media(max-width: 375px)
+                        display: none
 
-                    span:last-child
-                        padding-right: 0
+                span:last-child
+                    padding-right: 0

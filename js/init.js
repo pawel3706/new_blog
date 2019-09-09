@@ -31,7 +31,7 @@
                 this.progress.trackProgress();
 
                 window.addEventListener('scroll', this.activeCard.checkCards.bind(this.activeCard));
-                // in case of page reloading
+                // // in case of page reloading
                 this.activeCard.checkCards();
             };
 

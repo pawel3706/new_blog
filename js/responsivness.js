@@ -5,11 +5,12 @@ class Responsivness {
 
     changeSpacerHeight() {
         this.list.forEach(item => {
-            
+
             item.pin.style.width = '';
 
             if (item.duration > 0) {
                 const imgSize = document.querySelector('.card img').getBoundingClientRect().width;
+                // console.log(imgSize)
                 item.pin.style.width = `${imgSize}px`;
             } else {
                 item.pin.style.width = `${item.spacer.getBoundingClientRect().width}px`;
