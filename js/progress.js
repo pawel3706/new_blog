@@ -13,9 +13,9 @@ class Progress {
 
             const distance = item.spacer.getBoundingClientRect().top + (window.scrollY - (item.starterPos - item.screenPoint));
 
-            const active = item.duration > 0 ? progress >= 0 : progress >= 1;
+            const active = item.duration > 0 ? progress >= 0 && progress < 1 : progress >= 1;
             
-            const disabled = item.duration > 0 ? progress < 0 || progress > 1 : progress < 1;
+            const disabled = item.duration > 0 ? progress < 0 || progress >= 1 : progress < 1;
 
             if (active) {
                 item.pin.style.position = 'fixed';

@@ -1,62 +1,58 @@
 class ActiveCard {
     constructor() {
-        this.nav = document.querySelector('.nav');
-        this.body = document.querySelector('body');
-        this.hero = document.querySelector('.hero-body');
-        this.heroContainer = document.querySelector('.hero');
-        this.cards = document.querySelectorAll('.card');
-        this.heroBottom = this.hero.getBoundingClientRect().bottom + window.scrollY;
 
-        this.list = [this.hero, ...this.cards];
-        // console.log(this.list);
+        const navHeight = document.querySelector('nav').getBoundingClientRect().height;
+
+        function HeroSection() {
+            this.element = document.querySelector('.hero-body');
+            this.activeElement = document.querySelector('.hero')
+            this.starterPos = document.querySelector('body').getBoundingClientRect().top + window.scrollY;
+            this.duration = this.activeElement.getBoundingClientRect().height - this.element.getBoundingClientRect().height;
+            this.screenPoint = 0;
+        }
+
+        function FirstCard() {
+            this.element = document.querySelector('.card-pin1');
+            this.activeElement = this.element;
+            this.starterPos = this.element.getBoundingClientRect().top + window.scrollY;
+            this.heroElementBottom = document.querySelector('.hero-body').getBoundingClientRect().bottom + window.scrollY;
+            this.duration = this.heroElementBottom - navHeight;
+            this.screenPoint = this.heroElementBottom;
+        }
+
+        function OtherCards(selector) {
+            this.element = document.querySelector(selector);
+            this.elementHeight = this.element.getBoundingClientRect().height;
+            this.activeElement = this.element;
+            this.starterPos = this.element.getBoundingClientRect().top + window.scrollY;
+            this.duration = this.elementHeight;
+            this.screenPoint = this.elementHeight + navHeight;
+        }
+
+        this.list = [new HeroSection, new FirstCard];
+
+        for (let i = 2; i < 9; i++) {
+            this.list.push(new OtherCards(`.card-pin${i}`));
+        }
     }
+    
     checkCards() {
         this.list.forEach(item => {
 
-            const progress = this.getProgress(item);
+            const scrollDis =  window.scrollY + item.screenPoint;
+            const progress = (scrollDis - item.starterPos) / item.duration;
 
-            const elementWithClass = item === this.hero ? this.heroContainer : item;
-
-            if(progress >= 0) {
-                elementWithClass.classList.add('active');
+            if(progress > 0 && progress < 1) {
+                item.activeElement.classList.add('active');
             }
 
-            const lastItem = item.classList.contains('card-pin8');
+            const lastItem = this.list[this.list.length - 1].element;
 
-            const condition = lastItem ? progress <= 0 : progress >= 1 || progress <= 0;
+            const condition = item.element === lastItem ? progress <= 0 : progress >= 1 || progress <= 0;
 
             if (condition) {
-                elementWithClass.classList.remove('active');
+                item.activeElement.classList.remove('active');
             }
         })
-    }
-    
-    getProgress(element) {
-
-        const rect = element.getBoundingClientRect();
-        let starterPos;
-        let duration;
-        let screenPoint;
-
-        if (element === this.hero) {
-            starterPos = this.body.getBoundingClientRect().top + scrollY;
-            duration = this.heroContainer.getBoundingClientRect().height - rect.height;
-            screenPoint = 0;
-        } else if (element.classList.contains('card-pin1')) {
-            starterPos = rect.top + window.scrollY;
-            duration = this.heroBottom - this.nav.getBoundingClientRect().height;
-            screenPoint = this.heroBottom
-
-        } else {
-            starterPos = rect.top + window.scrollY;
-            duration = rect.height;
-            screenPoint = rect.height + this.nav.getBoundingClientRect().height;
-        }
-
-        const scrollDis =  window.scrollY + screenPoint;
-
-        const result = (scrollDis - starterPos) / duration;
-
-        return result;
     }
 }
