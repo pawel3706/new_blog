@@ -1,4 +1,4 @@
-class NavList {
+class Nav {
     constructor() {
         this.button = document.querySelector('.nav-button');
         this.element = document.querySelector('.nav-list');

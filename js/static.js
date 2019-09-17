@@ -1,28 +1,49 @@
-class Responsivness {
-    constructor(items) {
-        this.list = items;
+class Static {
+
+    static getCSS(elem, options) {
+        if (typeof options  === 'string') {
+            return window.getComputedStyle(elem)[options];
+        } else if  (Array.isArray(options)) {
+            const object = {};
+            const elemCSS = window.getComputedStyle(elem);
+            options.forEach(option => {
+                object[option] = elemCSS[option];
+            })
+            return object  
+        } else {
+            throw new Error('options is not an array');
+        }
+    }
+    
+    static setCSS(elem, options) {
+        if (typeof options === 'object') {
+            for (const option in options) {
+                let value = options[option];
+                if (value == parseFloat(value)) {
+                    value += 'px'
+                }
+                elem.style[option] = value;
+            }
+        } else {
+            throw new Error('options is not an object');
+        }
     }
 
-    changeSpacerHeight() {
-        this.list.forEach(item => {
+    static getRect(elem, options) {
+        if (typeof elem === 'string') {
+            elem = this.getElem(elem);
+        } 
+        const rect = elem.getBoundingClientRect();
+        return rect[options];
+    }
 
-            item.pin.style.width = '';
-
-            if (item.duration > 0) {
-                const imgSize = document.querySelector('.card img').getBoundingClientRect().width;
-                // console.log(imgSize)
-                item.pin.style.width = `${imgSize}px`;
-            } else {
-                item.pin.style.width = `${item.spacer.getBoundingClientRect().width}px`;
+    static getElem(selector) {
+        if (typeof selector === 'string') {
+            const elem =  document.querySelector(selector);
+            if (elem === null) {
+                throw new Error('invalid selector');
             }
-
-            item.spacer.style.height = `${item.pin.getBoundingClientRect().height}px`;
-
-            const element = item.starter.style.position === 'fixed' ? item.spacer : item.starter;
-
-            const position = element.getBoundingClientRect().top + window.scrollY;
-
-            item.starterPos = position;
-        });
+            return elem;
+        }
     }
 }
